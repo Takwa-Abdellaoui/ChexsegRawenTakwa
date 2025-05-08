@@ -1,0 +1,38 @@
+.navbar {
+  background-color: #2C3E50;          /* Bleu nuit */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  color: #ECF0F1;                     /* Gris clair (texte) */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar-logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #F1C40F;                     /* Jaune or */
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  font-size: 16px;
+}
+
+.navbar-links a {
+  color: #ECF0F1;                     /* Gris clair */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #F1C40F;                     /* Jaune or au survol */
+}
