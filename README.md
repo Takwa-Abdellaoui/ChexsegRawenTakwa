@@ -1,53 +1,59 @@
-# CheXNet for Classification and Localization of Thoracic Diseases
-
-This is a Python3 (Pytorch) reimplementation of [CheXNet](https://stanfordmlgroup.github.io/projects/chexnet/). The model takes a chest X-ray image as input and outputs the probability of each thoracic disease along with a likelihood map of pathologies.
+# ChexSeg : Développement d'un modèle d'intelligence artificielle pour l'analyse et le traitement d'examens radiologiques
+# Description
+Ce projet implémente une application web qui utilise le modèle ChexNet  pour la détection de pathologies pulmonaires à partir d'images radiographiques. Le modèle génère des Grad-CAMs (Class Activation Maps), permettant d'afficher des superpositions d'images avec des zones colorées correspondant aux régions infectées détectées dans les radiographies. Le projet comprend un backend Flask API pour la gestion des requêtes et un frontend React pour l'interface utilisateur, permettant aux utilisateurs de télécharger des images et d'observer les résultats des analyses.
 
 <div align=center><img width="500" height="500" src="./localization/00008473_011-3.png"/></div>
 
-## Dataset
+# Prérequis
 
-The [ChestX-ray14 dataset](http://openaccess.thecvf.com/content_cvpr_2017/papers/Wang_ChestX-ray8_Hospital-Scale_Chest_CVPR_2017_paper.pdf) comprises 112,120 frontal-view chest X-ray images of 30,805 unique patients with 14 disease labels. To evaluate the model, we randomly split the dataset into training (70%), validation (10%) and test (20%) sets, following the work in paper. Partitioned image names and corresponding labels are placed under the directory [labels](./ChestX-ray14/labels).
+Backend :
+Python 3.11
+Pip (gestionnaire de paquets Python)
 
-## Prerequisites
+Frontend :
+Node.js et npm (gestionnaire de paquets JavaScript)
 
-- Python 3.4+
-- [PyTorch](http://pytorch.org/) and its dependencies
+# Installation
+# 1. Installer les dépendances pour le backend
+Dans le dossier chexseg, ouvrez un terminal et exécutez les étapes suivantes :
+## 1. Créez un environnement virtuel :
+python -m venv venv
 
-## Usage
+## 2. Activez l'environnement virtuel
+Sur Windows :
+venv\Scripts\activate
 
-1. Clone this repository.
+## 3. Installez les dépendances Python nécessaires
+pip install -r requirements.txt
 
-2. Download images of ChestX-ray14 from this [released page](https://nihcc.app.box.com/v/ChestXray-NIHCC) and decompress them to the directory [images](./ChestX-ray14/images).
+# 2. Lancer le backend avec Flask API
+Dans le dossier chexseg, exécutez le fichier app.py pour démarrer le serveur Flask qui gère les requêtes API :
+python app.py
+Cela démarre le backend, qui sera disponible à l'adresse http://localhost:5000.
 
-3. Specify one or multiple GPUs and run
+# 3. Installer les dépendances pour le frontend
+Dans le dossier frontend, ouvrez un terminal et exécutez la commande suivante :
+## 1. Installez les dépendances JavaScript avec npm
+cd frontend
+npm install
 
-   `python model.py`
+# 4. Lancer l'interface React
+Dans le même terminal, lancez l'application React avec la commande suivante :
+npm run dev
 
-## Comparsion
+# Utilisation
 
-We followed the training strategy described in the official paper, and a ten crop method is adopted both in validation and test. Compared with the original CheXNet, the per-class AUROC of our reproduced model is almost the same. We have also proposed a slightly-improved model which achieves a mean AUROC of 0.847 (v.s. 0.841 of the original CheXNet).
+Une fois les deux serveurs (backend et frontend) en cours d'exécution, ouvrez votre navigateur et accédez à http://localhost:5173 pour utiliser l'interface.
 
-|     Pathology      | [Wang et al.](https://arxiv.org/abs/1705.02315) | [Yao et al.](https://arxiv.org/abs/1710.10501) | [CheXNet](https://arxiv.org/abs/1711.05225) | Our Implemented CheXNet | Our Improved Model |
-| :----------------: | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: | :---------------------: | :----------------: |
-|    Atelectasis     |                  0.716                   |                  0.772                   |                  0.8094                  |         0.8294          |       0.8311       |
-|    Cardiomegaly    |                  0.807                   |                  0.904                   |                  0.9248                  |         0.9165          |       0.9220       |
-|      Effusion      |                  0.784                   |                  0.859                   |                  0.8638                  |         0.8870          |       0.8891       |
-|    Infiltration    |                  0.609                   |                  0.695                   |                  0.7345                  |         0.7143          |       0.7146       |
-|        Mass        |                  0.706                   |                  0.792                   |                  0.8676                  |         0.8597          |       0.8627       |
-|       Nodule       |                  0.671                   |                  0.717                   |                  0.7802                  |         0.7873          |       0.7883       |
-|     Pneumonia      |                  0.633                   |                  0.713                   |                  0.7680                  |         0.7745          |       0.7820       |
-|    Pneumothorax    |                  0.806                   |                  0.841                   |                  0.8887                  |         0.8726          |       0.8844       |
-|   Consolidation    |                  0.708                   |                  0.788                   |                  0.7901                  |         0.8142          |       0.8148       |
-|       Edema        |                  0.835                   |                  0.882                   |                  0.8878                  |         0.8932          |       0.8992       |
-|     Emphysema      |                  0.815                   |                  0.829                   |                  0.9371                  |         0.9254          |       0.9343       |
-|      Fibrosis      |                  0.769                   |                  0.767                   |                  0.8047                  |         0.8304          |       0.8385       |
-| Pleural Thickening |                  0.708                   |                  0.765                   |                  0.8062                  |         0.7831          |       0.7914       |
-|       Hernia       |                  0.767                   |                  0.914                   |                  0.9164                  |         0.9104          |       0.9206       |
+Téléchargement d'une image :
+Accédez à l'interface de l'application sur http://localhost:5173.
 
-## Contributions
+Téléchargez une image de radiographie du dossier chexseg/chexseg_data/images.
 
-This work was collaboratively conducted by Xinyu Weng, Nan Zhuang, Jingjing Tian and Yingcheng Liu.
+Le modèle ChexNet-UNet générera des Grad-CAMs pour l'image, superposant les régions infectées détectées sur l'image originale.
 
-## Our Team
+# Visualisation des résultats
 
-All of us are students/interns of Machine Intelligence Lab, Institute of Computer Science & Technology, Peking University, directed by Prof. Yadong Mu (http://www.muyadong.com).
+Une fois le traitement effectué, vous pourrez voir l'image originale avec les zones infectées surlignées par les Grad-CAMs. Ces superpositions montrent visuellement quelles zones de l'image sont liées à des pathologies détectées par le modèle avec les analyses correspondantes .
+
+
