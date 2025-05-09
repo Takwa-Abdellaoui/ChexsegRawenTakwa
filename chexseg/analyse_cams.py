@@ -6,6 +6,8 @@ import torch
 import torchvision.models as models
 from torchvision import transforms
 from PIL import Image
+import matplotlib
+matplotlib.use('Agg')  # backend non-GUI
 import matplotlib.pyplot as plt
 from collections import OrderedDict
 import random
@@ -15,7 +17,6 @@ CLASS_NAMES = [
     'Nodule', 'Pneumonia', 'Pneumothorax', 'Consolidation', 'Edema',
     'Emphysema', 'Fibrosis', 'Pleural_Thickening', 'Hernia'
 ]
-
 def executer_analyse(image_path):
     torch.manual_seed(42)
     np.random.seed(42)
@@ -85,7 +86,7 @@ def executer_analyse(image_path):
 
     # === Courbe matplotlib ===
     fig2, ax2 = plt.subplots(figsize=(10, 4))
-    ax2.bar(CLASS_NAMES, probs, color=["red" if p > THRESHOLD else "gray" for p in probs])
+    ax2.bar(CLASS_NAMES, probs, color=["#2C3E50" if p > THRESHOLD else "gray" for p in probs])
     ax2.set_xticklabels(CLASS_NAMES, rotation=45, ha='right')
     ax2.set_ylabel("Probabilité")
     ax2.set_title("Prédictions du modèle")
