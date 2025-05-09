@@ -1,0 +1,22 @@
+.pathologies-container {
+    padding: 20px;
+    font-family: sans-serif;
+  }
+  
+  .pathology-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .pathology-card h2 {
+    margin-top: 0;
+  }
+  
+  .pathology-card a {
+    color: #0077cc;
+    text-decoration: none;
+  }
+  
