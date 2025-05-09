@@ -21,6 +21,15 @@ def predict():
     save_path = os.path.join(UPLOAD_FOLDER, file.filename)
     file.save(save_path)
 
+# Vérification que le fichier existe bien dans chexseg_data/images
+    allowed_dir = os.path.abspath("chexseg_data/images")
+    expected_path = os.path.join(allowed_dir, file.filename)
+
+    if not os.path.exists(expected_path):
+     os.remove(save_path)
+     return jsonify({"error": "Ce fichier ne semble pas être une radiographie thoracique autorisée."}), 400
+
+
     try:
         results, chart_base64 = executer_analyse(save_path)
         return jsonify({
@@ -30,6 +39,7 @@ def predict():
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
