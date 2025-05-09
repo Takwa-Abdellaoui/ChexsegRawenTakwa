@@ -4,7 +4,7 @@ Ce projet implémente une application web qui utilise le modèle ChexNet  pour l
 
 <div align=center><img width="500" height="500" src="./localization/00008473_011-3.png"/></div>
 
-## Prérequis
+# Prérequis
 
 Backend :
 Python 3.11
@@ -14,30 +14,30 @@ Frontend :
 Node.js et npm (gestionnaire de paquets JavaScript)
 
 # Installation
-1. Installer les dépendances pour le backend
+# 1. Installer les dépendances pour le backend
 Dans le dossier chexseg, ouvrez un terminal et exécutez les étapes suivantes :
-#1. Créez un environnement virtuel :
+## 1. Créez un environnement virtuel :
 python -m venv venv
 
-#2. Activez l'environnement virtuel
-# Sur Windows :
+## 2. Activez l'environnement virtuel
+Sur Windows :
 venv\Scripts\activate
 
-#3. Installez les dépendances Python nécessaires
+## 3. Installez les dépendances Python nécessaires
 pip install -r requirements.txt
 
-2. Lancer le backend avec Flask API
+# 2. Lancer le backend avec Flask API
 Dans le dossier chexseg, exécutez le fichier app.py pour démarrer le serveur Flask qui gère les requêtes API :
 python app.py
 Cela démarre le backend, qui sera disponible à l'adresse http://localhost:5000.
 
-3. Installer les dépendances pour le frontend
+# 3. Installer les dépendances pour le frontend
 Dans le dossier frontend, ouvrez un terminal et exécutez la commande suivante :
-# 1. Installez les dépendances JavaScript avec npm
+## 1. Installez les dépendances JavaScript avec npm
 cd frontend
 npm install
 
-4. Lancer l'interface React
+# 4. Lancer l'interface React
 Dans le même terminal, lancez l'application React avec la commande suivante :
 npm run dev
 
@@ -52,7 +52,7 @@ Téléchargez une image de radiographie du dossier chexseg/chexseg_data/images.
 
 Le modèle ChexNet-UNet générera des Grad-CAMs pour l'image, superposant les régions infectées détectées sur l'image originale.
 
-## Visualisation des résultats
+# Visualisation des résultats
 
 Une fois le traitement effectué, vous pourrez voir l'image originale avec les zones infectées surlignées par les Grad-CAMs. Ces superpositions montrent visuellement quelles zones de l'image sont liées à des pathologies détectées par le modèle avec les analyses correspondantes .
 
