@@ -1,0 +1,97 @@
+.home {
+  font-family: 'Segoe UI', sans-serif;
+  padding: 2rem;
+}
+
+.hero {
+  background: linear-gradient(to right, #00416A, #E4E5E6);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero .highlight {
+  color: #FFD700;
+}
+
+.hero .buttons {
+  margin-top: 2rem;
+}
+
+.hero button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  margin: 0 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero button.secondary {
+  background-color: white;
+  color: #00416A;
+  border: 1px solid #00416A;
+}
+
+.features {
+  padding: 3rem 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem;
+  flex: 1 1 200px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 250px;
+}
+
+.how-it-works {
+  background-color: #e8f0fe;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.how-it-works ol {
+  text-align: left;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.testimonials {
+  padding: 3rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.testimonials-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonials blockquote {
+  background: #f0f0f0;
+  border-left: 5px solid #007bff;
+  padding: 1rem 1.5rem;
+  max-width: 600px;
+  font-style: italic;
+}
+
+.testimonials footer {
+  text-align: right;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
